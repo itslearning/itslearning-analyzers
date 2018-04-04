@@ -40,6 +40,16 @@ namespace Itslearning.Analyzers
             "Test method names should have a standardized format to distinguish them from test utility classes.",
             HelpLinkUriFor("ITSA1002"));
 
+        public static readonly DiagnosticDescriptor Itsa1003_TestProjectNaming = new DiagnosticDescriptor(
+            "ITSA1003",
+            "Test project name should have a standard ending.",
+            "Test project '{0}' has an invalid ending.",
+            "Naming",
+            DiagnosticSeverity.Error,
+            true,
+            "Test project names should have a standardized format to distinguish them from test utility files.",
+            HelpLinkUriFor("ITSA1003"));
+
 
         private static string HelpLinkUriFor(string id) => HelpUriBase + id;
 

@@ -9,7 +9,9 @@ namespace Itslearning.Analyzers.UnitTesting
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class TestNamingAnalyzer : ItslearningUnitTestingAnalyzerBase
     {
-        private const string TestFileNameEnding = "Tests";
+        private const string IntegrationTestProjectNameEnding = ".IntegrationTests";
+        private const string UnitTestProjectNameEnding = ".UnitTests";
+        private const string TestFileNameEnding = "Tests.cs";
         private const string TestClassNameEnding = "Tests";
         private static readonly Regex MethodNameRegex = new Regex(@"\S+_Should\S+", RegexOptions.Compiled);
 
@@ -18,23 +20,45 @@ namespace Itslearning.Analyzers.UnitTesting
             Descriptors.Itsa1000_TestFileNaming,
             Descriptors.Itsa1001_TestClassNaming,
             Descriptors.Itsa1002_TestMethodNaming,
+            Descriptors.Itsa1003_TestProjectNaming,
         });
 
         protected override void Analyze(CompilationStartAnalysisContext context)
         {
+            context.RegisterCompilationEndAction(AnalyzeTestProjectName);
             context.RegisterCompilationEndAction(AnalyzeTestFileName);
             context.RegisterSymbolAction(AnalyzeTestClassName, SymbolKind.NamedType);
             context.RegisterSymbolAction(AnalyzeTestMethodName, SymbolKind.Method);
         }
 
-        private static void AnalyzeTestFileName(CompilationAnalysisContext compilationContext)
+        private static void AnalyzeTestProjectName(CompilationAnalysisContext compilationContext)
         {
-            if (!compilationContext.Compilation.AssemblyName.EndsWith(TestFileNameEnding))
+            var projectName = compilationContext.Compilation.AssemblyName;
+
+            if (!projectName.EndsWith(IntegrationTestProjectNameEnding)
+                && !projectName.EndsWith(UnitTestProjectNameEnding))
             {
                 compilationContext.ReportDiagnostic(Diagnostic.Create(
-                    Descriptors.Itsa1000_TestFileNaming,
+                    Descriptors.Itsa1003_TestProjectNaming,
                     Location.None,
-                    compilationContext.Compilation.AssemblyName));
+                    projectName));
+            }
+        }
+
+        private static void AnalyzeTestFileName(CompilationAnalysisContext compilationContext)
+        {
+            var fileNames = compilationContext.Compilation.SyntaxTrees
+                .Where(st => st.FilePath != null).Select(st => st.FilePath);
+
+            foreach (var fileName in fileNames)
+            {
+                if (!fileName.EndsWith(TestFileNameEnding))
+                {
+                    compilationContext.ReportDiagnostic(Diagnostic.Create(
+                        Descriptors.Itsa1000_TestFileNaming,
+                        Location.None,
+                        fileName));
+                }
             }
         }
 
