@@ -6,17 +6,17 @@
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Itslearning.Analyzers</PackageId>
-    <PackageVersion>1.0.0.0</PackageVersion>
-    <Authors>marcin</Authors>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Marcin Wachulski</Authors>
     <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
     <PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
     <PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
     <RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Itslearning.Analyzers</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Description>This utility helps aligning C# code to itslearning coding standards.</Description>
     <PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
-    <Copyright>Copyright</Copyright>
-    <PackageTags>Itslearning.Analyzers, analyzers</PackageTags>
+    <Copyright>Copyright (C) 2018. itslearning AS</Copyright>
+    <PackageTags>itslearning, analyzers, roslyn</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
