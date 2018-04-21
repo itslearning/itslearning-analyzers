@@ -50,6 +50,28 @@ namespace Itslearning.Analyzers
             "Test project names should have a standardized format to distinguish them from test utility files.",
             HelpLinkUriFor("ITSA1003"));
 
+        public static readonly DiagnosticDescriptor Itsa1004_ConditionalsInTestBodies = new DiagnosticDescriptor(
+            "ITSA1004",
+            "Test method should not contain conditional statements like if, switch etc.",
+            "Test method '{0}' contains a conditional statement.",
+            "Design",
+            DiagnosticSeverity.Error,
+            true,
+            "Test methods should not contain complex logic that is the subject of testing itself. Try splitting " +
+            "particular cases into dedicated test methods.",
+            HelpLinkUriFor("ITSA1003"));
+
+        public static readonly DiagnosticDescriptor Itsa1005_AllowedComments = new DiagnosticDescriptor(
+            "ITSA1005",
+            "Test method should not contain any other comment than '// arrange', '// act', '// assert'.",
+            "Test method '{0}' contains not allowed comment.",
+            "Maintainability",
+            DiagnosticSeverity.Warning,
+            true,
+            "Commenting test steps indicates substantial test method complexity. Unit tests should be simple. " +
+            "Consider extracting arrangement steps into some test utility.",
+            HelpLinkUriFor("ITSA1003"));
+
 
         private static string HelpLinkUriFor(string id) => HelpUriBase + id;
 

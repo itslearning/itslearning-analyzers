@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework.NUnit2", "Itslearning.NetFramework.NUnit2\Itslearning.NetFramework.NUnit2.csproj", "{1AB9D211-A4F8-4739-B41B-7B97808981D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework", "Itslearning.NetFramework\Itslearning.NetFramework.csproj", "{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1AB9D211-A4F8-4739-B41B-7B97808981D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AB9D211-A4F8-4739-B41B-7B97808981D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AB9D211-A4F8-4739-B41B-7B97808981D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

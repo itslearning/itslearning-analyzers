@@ -4,7 +4,7 @@ namespace Itslearning.Analyzers.UnitTesting
 {
     public abstract class ItslearningUnitTestingAnalyzerBase : DiagnosticAnalyzer
     {
-        protected NUnitContext NUnitContext;
+        protected NUnitContext NUnitContext { get; private set; }
 
         /// <summary>
         /// Note!!! Don't call it in descendant classes. Use <see cref="Analyze"/> instead.

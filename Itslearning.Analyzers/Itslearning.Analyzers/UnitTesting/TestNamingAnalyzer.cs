@@ -2,6 +2,8 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace Itslearning.Analyzers.UnitTesting
@@ -26,7 +28,7 @@ namespace Itslearning.Analyzers.UnitTesting
         protected override void Analyze(CompilationStartAnalysisContext context)
         {
             context.RegisterCompilationEndAction(AnalyzeTestProjectName);
-            context.RegisterCompilationEndAction(AnalyzeTestFileName);
+            context.RegisterSyntaxTreeAction(AnalyzeTestFileName);
             context.RegisterSymbolAction(AnalyzeTestClassName, SymbolKind.NamedType);
             context.RegisterSymbolAction(AnalyzeTestMethodName, SymbolKind.Method);
         }
@@ -45,20 +47,30 @@ namespace Itslearning.Analyzers.UnitTesting
             }
         }
 
-        private static void AnalyzeTestFileName(CompilationAnalysisContext compilationContext)
+        private static void AnalyzeTestFileName(SyntaxTreeAnalysisContext syntaxTreeContext)
         {
-            var fileNames = compilationContext.Compilation.SyntaxTrees
-                .Where(st => st.FilePath != null).Select(st => st.FilePath);
+            var nodes = syntaxTreeContext
+                .Tree
+                .GetRoot()
+                .DescendantNodes(n => n.IsKind(SyntaxKind.CompilationUnit)
+                                      || n.IsKind(SyntaxKind.NamespaceDeclaration)
+                                      || n.IsKind(SyntaxKind.ClassDeclaration)
+                                      || n.IsKind(SyntaxKind.AttributeList));
 
-            foreach (var fileName in fileNames)
-            {
-                if (!fileName.EndsWith(TestFileNameEnding))
+            var containsTestFixture = nodes
+                .Any(n =>
                 {
-                    compilationContext.ReportDiagnostic(Diagnostic.Create(
-                        Descriptors.Itsa1000_TestFileNaming,
-                        Location.None,
-                        fileName));
-                }
+                    var attributeName = (n as AttributeSyntax)?.Name.ToString();
+                    return attributeName == "NUnit.Framework.TestFixture"
+                        || attributeName == "TestFixture";
+                });
+
+            if (containsTestFixture && !syntaxTreeContext.Tree.FilePath.EndsWith(TestFileNameEnding))
+            {
+                syntaxTreeContext.ReportDiagnostic(Diagnostic.Create(
+                    Descriptors.Itsa1000_TestFileNaming,
+                    Location.None,
+                    syntaxTreeContext.Tree.FilePath));
             }
         }
 

@@ -70,7 +70,7 @@ namespace Itslearning.Analyzers.Tests.UnitTesting
             var workspace = new UnitTestWorkspace
             {
                 FileNames = new [] {incorrectFileName},
-                SourceFiles = new[] { "" },
+                SourceFiles = new[] { "[NUnit.Framework.TestFixture] public class Tests {}" },
                 Analyzer = new TestNamingAnalyzer()
             };
 
