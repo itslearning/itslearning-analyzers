@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Itslearning.NetFramework.NUnit2
 {
@@ -20,7 +21,7 @@ namespace Itslearning.NetFramework.NUnit2
         {
             if (true) { }
             switch (1) { case 1: break; }
-            System.Console.Write(1 > 0 ? 1 : 0);
+            Console.Write(1 > 0 ? 1 : 0);
         }
 
         [Test]
@@ -35,12 +36,41 @@ namespace Itslearning.NetFramework.NUnit2
             switch (1) { case 1: break; }
         }
 
-        public static readonly int[] TestSource = new int[] { 1, 2 };
+        public static readonly int[] TestSource = { 1, 2 };
 
         [TestCaseSource(nameof(TestSource))]
         public void TestMethod_ContainsConditionalExpression_ShouldError(int x)
         {
-            System.Console.Write(x > 0 ? 1 : 0);
+            Console.Write(x > 0 ? 1 : 0);
+        }
+
+        [TestCase]
+        public void TestMethod_ContainsAllowedComments_ShouldNotError()
+        {
+            // arrange
+
+            //act
+
+            // Assert
+        }
+
+        [Test]
+        public void TestMethod_ContainsNotAllowedComments_ShouldError()
+        {
+            // wrong comment
+
+            // arrange with sth
+        }
+
+        [Test]
+        public void NotAllowedComments_InsideCalledMethod_ShouldNotError()
+        {
+            NoTestMethod_AndEvenContainingNotAllowedComments_ShouldNotError();
+        }
+
+        public void NoTestMethod_AndEvenContainingNotAllowedComments_ShouldNotError()
+        {
+            // incorrect comment
         }
     }
 }
