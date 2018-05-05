@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0" DefaultTargets="Default">
+  
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <VersionNumber>$(VersionNumber)</VersionNumber>
+    <BuildInParallel Condition="'$(BuildInParallel)' == ''">true</BuildInParallel>
+    <PublishDir>publish</PublishDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Solution Include="*.sln" />
+    <NugetLibProject Include=".\Itslearning.Analyzers\Itslearning.Analyzers.csproj" />
+    <VsixProject Include=".\Itslearning.Analyzers.Vsix\Itslearning.Analyzers.Vsix.csproj" />
+  </ItemGroup>
+
+  <Target Name="Default" DependsOnTargets="Test;Pack" />
+  <Target Name="Clean">
+    <MSBuild Projects="@(Solution)" Targets="Clean" Properties="Configuration=Debug"/>
+    <MSBuild Projects="@(Solution)" Targets="Clean" Properties="Configuration=Release"/>
+    <RemoveDir Directories="packages; publish" />
+  </Target>
+  <Target Name="Build">
+    <Exec Command="NuGet restore %(Solution.Identity)" />
+    <MSBuild Projects="@(Solution)" Properties="Configuration=$(Configuration)" />
+  </Target>
+  <Target Name="Test" DependsOnTargets="Build">
+    <PropertyGroup>
+      <Nunit3Console>packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe</Nunit3Console>
+    </PropertyGroup>
+    <ItemGroup>
+      <UnitTestFiles Include=".\Itslearning.Analyzers.UnitTests\**\bin\$(Configuration)\**\*Tests.dll;
+                              .\Itslearning.Analyzers.IntegrationTests\**\bin\$(Configuration)\**\Itslearning.NetFramework.NUnit2.dll" />
+    </ItemGroup>
+    <Message Text="Assemblies with tests: @(UnitTestFiles, ',')" />
+    <Exec Command="$(Nunit3Console) @(UnitTestFiles, ' ')" />
+    <Message Text="SQ Analysis" />
+  </Target>
+  <Target Name="Pack" DependsOnTargets="Build">
+    <MSBuild Projects="@(NugetLibProject)" Properties="Configuration=$(Configuration)" Targets="Pack" />
+    <ItemGroup>
+      <NugetPackageFile Include=".\Itslearning.Analyzers\bin\$(Configuration)\*.nupkg" />
+      <VsixPackageFile Include=".\Itslearning.Analyzers.Vsix\bin\$(Configuration)\*.vsix" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NugetPackageFile);@(VsixPackageFile)" 
+          DestinationFolder="$(PublishDir)" />
+  </Target>
+
+</Project>

@@ -4,7 +4,7 @@ This is the code repository for a Roslyn based nuget library and a Visual Studio
 
 ## How it works
 
-TODO
+TODO: gif
 
 ## How can I (or my organization) make use of it?
 

@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework.NUnit2", "Itslearning.Analyzers.IntegrationTests\Itslearning.NetFramework.NUnit2\Itslearning.NetFramework.NUnit2.csproj", "{1AB9D211-A4F8-4739-B41B-7B97808981D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{DCDC482C-5144-4EED-AF83-4DB1DCD1C38B}"
+	ProjectSection(SolutionItems) = preProject
+		Build.proj = Build.proj
+		Build.ps1 = Build.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
