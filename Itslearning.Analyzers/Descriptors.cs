@@ -17,7 +17,8 @@ namespace Itslearning.Analyzers
             "Naming",
             DiagnosticSeverity.Error,
             true,
-            "Test file names should have a standardized format to distinguish them from test utility files.",
+            "Test file names should have a standardized format to distinguish them from test utility files. " +
+            "The allowed format is '*Tests.cs' for every file that contains one or more test fixture classes.",
             HelpLinkUriFor("ITSA1000"));
 
         public static readonly DiagnosticDescriptor Itsa1001_TestClassNaming = new DiagnosticDescriptor(
@@ -27,9 +28,10 @@ namespace Itslearning.Analyzers
             "Naming",
             DiagnosticSeverity.Error,
             true,
-            "Test class names should have a standardized format to distinguish them from test utility classes.",
+            "Test class names should have a standardized format to distinguish them from test utility classes." +
+            "The allowed format is '*Tests' for every class that is marked a test fixture.",
             HelpLinkUriFor("ITSA1001"));
-
+            
         public static readonly DiagnosticDescriptor Itsa1002_TestMethodNaming = new DiagnosticDescriptor(
             "ITSA1002",
             "Test method name should have a standard format.",
@@ -37,7 +39,7 @@ namespace Itslearning.Analyzers
             "Naming",
             DiagnosticSeverity.Error,
             true,
-            "Test method names should have a standardized format to distinguish them from test utility classes.",
+            "Test method names should have a standardized format to distinguish them from test utility classes. The allowed format is '{PRECONDITIONS}_Should{EFFECT}' for every method marked as a test method.",
             HelpLinkUriFor("ITSA1002"));
 
         public static readonly DiagnosticDescriptor Itsa1003_TestProjectNaming = new DiagnosticDescriptor(
@@ -47,7 +49,7 @@ namespace Itslearning.Analyzers
             "Naming",
             DiagnosticSeverity.Error,
             true,
-            "Test project names should have a standardized format to distinguish them from test utility files.",
+            "Test project names should have a standardized format to distinguish them from test utility files. The allowed format is: '*.(Unit|Integration)Tests' for every project that contains test fixtures.",
             HelpLinkUriFor("ITSA1003"));
 
         public static readonly DiagnosticDescriptor Itsa1004_ConditionalsInTestBodies = new DiagnosticDescriptor(
