@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itslearning.Analyzers", "Itslearning.Analyzers\Itslearning.Analyzers\Itslearning.Analyzers.csproj", "{92FD4E5D-B9DA-49AD-84A3-F00EDF407D2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itslearning.Analyzers", "Itslearning.Analyzers\Itslearning.Analyzers.csproj", "{92FD4E5D-B9DA-49AD-84A3-F00EDF407D2A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itslearning.Analyzers.UnitTests", "Itslearning.Analyzers\Itslearning.Analyzers.UnitTests\Itslearning.Analyzers.UnitTests.csproj", "{30E74328-D746-41E8-9A18-555AF93BBC3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itslearning.Analyzers.UnitTests", "Itslearning.Analyzers.UnitTests\Itslearning.Analyzers.UnitTests.csproj", "{30E74328-D746-41E8-9A18-555AF93BBC3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.Analyzers.Vsix", "Itslearning.Analyzers\Itslearning.Analyzers.Vsix\Itslearning.Analyzers.Vsix.csproj", "{2D2A6F80-A05F-40BC-8F55-9A3B50843DAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.Analyzers.Vsix", "Itslearning.Analyzers.Vsix\Itslearning.Analyzers.Vsix.csproj", "{2D2A6F80-A05F-40BC-8F55-9A3B50843DAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{61C997D0-ECE9-4A20-A648-D31DE1382339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework", "Itslearning.Analyzers\Itslearning.Analyzers.IntegrationTests\Itslearning.NetFramework\Itslearning.NetFramework.csproj", "{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework", "Itslearning.Analyzers.IntegrationTests\Itslearning.NetFramework\Itslearning.NetFramework.csproj", "{3209DAC4-AAA7-4E17-90F8-061BFFA63CC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework.NUnit2", "Itslearning.Analyzers\Itslearning.Analyzers.IntegrationTests\Itslearning.NetFramework.NUnit2\Itslearning.NetFramework.NUnit2.csproj", "{1AB9D211-A4F8-4739-B41B-7B97808981D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itslearning.NetFramework.NUnit2", "Itslearning.Analyzers.IntegrationTests\Itslearning.NetFramework.NUnit2\Itslearning.NetFramework.NUnit2.csproj", "{1AB9D211-A4F8-4739-B41B-7B97808981D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

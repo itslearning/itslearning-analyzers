@@ -14,9 +14,9 @@
     <RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Description>This utility helps aligning C# code to itslearning coding standards.</Description>
-    <PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+    <PackageReleaseNotes>Initial release of itslearnig AS coding standards analyzers.</PackageReleaseNotes>
     <Copyright>Copyright (C) 2018. itslearning AS</Copyright>
-    <PackageTags>itslearning, analyzers, roslyn</PackageTags>
+    <PackageTags>analyzers, Roslyn, itslearning</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
