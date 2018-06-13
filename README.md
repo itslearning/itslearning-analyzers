@@ -4,7 +4,7 @@ This is the code repository for a Roslyn based nuget library and a Visual Studio
 
 ## How it works
 
-TODO: gif
+![Example use of Itslearning analyzers](img/global-analyzers.gif)
 
 ## How can I (or my organization) make use of it?
 
