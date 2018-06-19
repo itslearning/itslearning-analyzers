@@ -75,8 +75,8 @@ namespace Itslearning.Analyzers
             HelpLinkUriFor("ITSA1003"));
 
 
-        private static string HelpLinkUriFor(string id) => HelpUriBase + id;
+        private static string HelpLinkUriFor(string id) => HelpUriBase;
 
-        private const string HelpUriBase = "https://TODO/";
+        private const string HelpUriBase = "http://gitlab.itsbuild.net/mwachulski/itslearning-analyzers/blob/master/RULES.md";
     }
 }
