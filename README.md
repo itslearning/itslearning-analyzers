@@ -8,7 +8,13 @@ This is the code repository for a Roslyn based nuget library and a Visual Studio
 
 ## How can I (or my organization) make use of it?
 
-TODO: refs to nuget/VS extension
+#### As nuget development utility
+
+Install [nuget package](https://www.nuget.org/packages/Itslearning.Analyzers). This will add a Roslyn analyzer to your project that will take care of keeping your code aligned to itslearning coding guidelines.
+
+#### As IDE-wide Visual Studio extension (VSIX)
+
+Install the VS extension from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=itslearning.itslearning-roslyn-analyzers-csharp). It will analyse all your projects while they are open in the IDE.
 
 ## Code quality rules reference
 
